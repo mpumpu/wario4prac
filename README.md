@@ -28,9 +28,9 @@
 * Change difficulty: hold SELECT after a soft reset and create a new save file
 * Disable music during gameplay: hold L while entering a level
 * Don't skip boss timer intro: hold L while entering a boss level
-* Access unused debug room: SELECT when Hall of Hieroglyphs is selected on the passage screen
-* Don't skip boss corridor: SELECT while entering a boss stage
-* Temporarily change language (EN/JP): SELECT in the Music Room
+* Access unused debug room: press SELECT when Hall of Hieroglyphs is selected on the passage screen
+* Don't skip boss corridor: hold SELECT while entering a boss stage
+* Temporarily change language (EN/JP): press SELECT in the Music Room
 
 *SELECT+UP respawns ALL blocks in the stage, not just the current room. It also respawns coins and hearts - meant for individual room practice in its current state. It does not respawn enemies.
 
