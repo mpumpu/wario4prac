@@ -369,18 +369,6 @@
 @@end:
 
 @diva_skip_2: ;skips the little wait time before the timer would start, to be used only with the wait skip, but before it
-    ldr     r3,=#ADDR_BOSSWEP ;don't do it with a purchased weapon
-    ldrb    r4,[r3]
-    cmp     r4,#0x00
-    bne     @@end
-    ldr     r3,=#0x0300025F ;check if second to final diva phase
-    ldrb    r4,[r3]
-    cmp     r4,#0x00
-    beq     @@end
-    ldr     r3,=#0x03000207
-    ldrb    r4,[r3]
-    cmp     r4,#0x3C
-    bne     @@end
     ldr     r3,=#ADDR_PASSAGE
     ldrb    r4,[r3]
     cmp     r4,#0x05
@@ -388,6 +376,22 @@
     ldr     r3,=#ADDR_MAPPOS
     ldrb    r4,[r3]
     cmp     r4,#0x04
+    bne     @@end
+    ldr     r3,=#ADDR_BOSSWEP ;don't do it with a purchased weapon
+    ldrb    r4,[r3]
+    cmp     r4,#0x00
+    bne     @@end
+    ldr     r3,=#ADDR_SOFTRESET ;don't do it after defeating diva
+    ldrb    r4,[r3]
+    cmp     r4,#0x01
+    beq     @@end
+    ldr     r3,=#0x0300025F ;check if second to final diva phase
+    ldrb    r4,[r3]
+    cmp     r4,#0x00
+    beq     @@end
+    ldr     r3,=#0x03000207
+    ldrb    r4,[r3]
+    cmp     r4,#0x3C
     bne     @@end
     ldr     r3,=#ADDR_KEY ;hold L to skip the skip
     ldrh    r3,[r3]
@@ -406,7 +410,7 @@
 @@end:
 
 @boss_wait_skip:
-	ldr     r3,=#ADDR_BOSSWEP ;don't do it with a purchased weapon
+    ldr     r3,=#ADDR_BOSSWEP ;don't do it with a purchased weapon
     ldrb    r4,[r3]
     cmp     r4,#0x00
     bne     @@end
